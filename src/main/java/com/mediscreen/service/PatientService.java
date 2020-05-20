@@ -16,6 +16,15 @@ public interface PatientService {
 	
 	/**
 	 * 
+	 * @param id
+	 * 
+	 * Rechercher un patient a partir de son id
+	 */
+	public Patient findPatient(String id);
+	
+	
+	/**
+	 * 
 	 * @return Liste des patients
 	 */
 	public List<Patient> allPatient();
@@ -35,5 +44,7 @@ public interface PatientService {
 	 * Suppression du patient
 	 */
 	public void deletePatient(String id);
+	
+	
 
 }

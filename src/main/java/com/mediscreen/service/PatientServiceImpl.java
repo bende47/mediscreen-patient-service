@@ -20,9 +20,16 @@ public class PatientServiceImpl implements PatientService{
 	
 	@Override
 	public Patient addPatient(Patient p) {	
-		p.setDateCreate(new Date());
-		log.info("Patient ajouté avec succès:" + p.toString());
-		return patientRepository.save(p);
+		
+		Patient patient = patientRepository.findByPatient(p.getName(), p.getFirstname(),p.getPhone());
+		
+		if(patient == null) {
+			p.setDateCreate(new Date());
+			log.info("Patient ajouté avec succès:" + p.toString());
+			patient = patientRepository.save(p); 
+		}
+
+		return patient;
 	}
 
 	@Override
@@ -54,6 +61,13 @@ public class PatientServiceImpl implements PatientService{
 		patientRepository.delete(patient);
 		log.info("Patient supprimé avec succès");
 
+	}
+
+	@Override
+	public Patient findPatient(String id) {
+		Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Patient introuvable:" + id));
+		log.info("Patient ="+patient.toString());
+		return patient;
 	}
 
 }

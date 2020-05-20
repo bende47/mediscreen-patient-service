@@ -1,4 +1,4 @@
-package com.mediscreen;
+package com.mediscreen.controller;
 
 import java.util.List;
 
@@ -27,6 +27,15 @@ public class PatientController {
 	@PostMapping(value="patient/add")
 	public Patient add(@RequestBody Patient patient) {
 		return patientService.addPatient(patient);
+	}
+	
+	/**
+	 * Methode permettant de rechercher un patient
+	 */
+	
+	@GetMapping(value="patient/find/{id}")
+	public Patient find(@PathVariable("id") String id) {
+		return patientService.findPatient(id);
 	}
 	
 	/**

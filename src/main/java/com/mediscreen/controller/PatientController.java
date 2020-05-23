@@ -1,5 +1,6 @@
 package com.mediscreen.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class PatientController {
 	
 	/**
 	 * Methode permettant d'ajouter les informations d'un patient
+	 * @throws ParseException 
 	 */
 	
 	@PostMapping(value="patient/add")

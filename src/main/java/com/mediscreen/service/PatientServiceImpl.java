@@ -1,7 +1,6 @@
 package com.mediscreen.service;
 
-import java.time.LocalDate;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class PatientServiceImpl implements PatientService{
 	
-	private  Calendar calendar = Calendar.getInstance();
 
 	
 	@Autowired
@@ -77,24 +75,6 @@ public class PatientServiceImpl implements PatientService{
 		return patient;
 	}
 	
-	@SuppressWarnings("static-access")
-	@Override
-	public int determineAge(LocalDate date) {
-		/*Determiner l'annee */
-		int annee=date.getYear();
-		int calannee=calendar.get(Calendar.YEAR)-annee;
-		
-		/*Determiner le mois*/
-		int mois=date.getMonthValue();
-		int calmois=calendar.MONTH - mois;			
-
-		if (calmois >= 0) {
-			log.info("age = {}", calannee);
-			return calannee;
-		} else {
-			log.info("age = {}", calannee - 1);
-			return calannee - 1;
-		}
-	}
+	
 
 }

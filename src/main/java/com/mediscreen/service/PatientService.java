@@ -1,6 +1,5 @@
 package com.mediscreen.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.mediscreen.entities.Patient;
@@ -47,11 +46,6 @@ public interface PatientService {
 	public void deletePatient(String id);
 	
 	
-	/**
-	 * 
-	 * @param date
-	 * @return  l'age d'un patient
-	 */
-	public int determineAge(LocalDate date);
+	
 
 }

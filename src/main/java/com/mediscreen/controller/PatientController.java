@@ -67,4 +67,8 @@ public class PatientController {
 		 patientService.deletePatient(id);
 	}
 	
+		
+	
+	
+	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mediscreen.entities.Patient;
 import com.mediscreen.service.PatientService;
 
+
 @RestController
 public class PatientController {
 

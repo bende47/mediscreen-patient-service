@@ -32,7 +32,7 @@ public class PatientServiceImpl implements PatientService{
 			p = patientRepository.save(p); 
 			return p;
 		}else {
-			return null;
+			return patient;
 		}
 
 	}
@@ -44,7 +44,7 @@ public class PatientServiceImpl implements PatientService{
 
 	@Override
 	public Patient updatePatient(Patient p,String id) {
-		Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Patient introuvable:" + id));
+		Patient patient = patientRepository.findPatientById(id);
 		if(patient != null) {
 			patient.setDateUpdate(new Date());
 			patient.setAddress(p.getAddress());
@@ -62,7 +62,7 @@ public class PatientServiceImpl implements PatientService{
 
 	@Override
 	public void deletePatient(String id) {		
-		Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Patient introuvable:" + id));
+		Patient patient = patientRepository.findPatientById(id);
 		patientRepository.delete(patient);
 		log.info("Patient supprimé avec succès");
 
@@ -70,7 +70,7 @@ public class PatientServiceImpl implements PatientService{
 
 	@Override
 	public Patient findPatient(String id) {
-		Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Patient introuvable:" + id));
+		Patient patient = patientRepository.findPatientById(id);
 		log.info("Patient ="+patient.toString());
 		return patient;
 	}

@@ -13,5 +13,8 @@ public interface PatientRepository  extends MongoRepository<Patient, String>{
 	@Query("{ 'name' : ?0 },{ 'firstname' : ?0 },{ 'phone' : ?0 }")
 	Patient findByPatient(String name, String firstname,String phone);
 	
+	@Query("{ 'id' : ?0 }")
+	Patient findPatientById(String id);
+	
 	public List<Patient> findAllByOrderByIdDesc();
 }

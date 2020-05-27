@@ -31,6 +31,11 @@ class PatientServiceControllerTest {
 				.accept(MediaType.APPLICATION_JSON))
 		        .andDo(MockMvcResultHandlers.print())
 		        .andExpect(status().isOk());
+		
+		this.mvc.perform(MockMvcRequestBuilders.delete("/patient/delete/test1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
+
 
 	}	
 	
@@ -40,6 +45,11 @@ class PatientServiceControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
 
+		this.mvc.perform(MockMvcRequestBuilders.delete("/patient/delete/test3")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
+
+		
 	}
 	
 	@Test

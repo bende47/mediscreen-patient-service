@@ -57,8 +57,9 @@ public class PatientServiceTest {
 	public void findPatientTest(){
 	  patient = patientRepository.save(patient);
 	  String id = patient.getId();
-	  Optional<Patient> patient = patientRepository.findById(id);
-	  assertTrue(patient.isPresent());
+	  Optional<Patient> patients = patientRepository.findById(id);
+	  assertTrue(patients.isPresent());
+	  patientRepository.delete(patient);	  
 	}
 	
 	@Test

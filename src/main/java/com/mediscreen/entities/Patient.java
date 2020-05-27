@@ -76,7 +76,7 @@ public class Patient {
 	 * @param birthday the birthday to set
 	 */
 	public void setBirthday(Date birthday) {
-		this.birthday = birthday != null ? new Date(birthday.getTime()) : null;
+		this.birthday = birthday != null ? (Date) birthday.clone() : null;
 	}
 	/**
 	 * @return the address
@@ -112,7 +112,7 @@ public class Patient {
 	 * @param dateCreate the dateCreate to set
 	 */
 	public void setDateCreate(Date dateCreate) {
-		this.dateCreate = dateCreate != null ? new Date(dateCreate.getTime()) : null;
+		this.dateCreate = dateCreate != null ? (Date) dateCreate.clone() : null;
 	}
 	/**
 	 * @return the dateUpdate
@@ -124,7 +124,7 @@ public class Patient {
 	 * @param dateUpdate the dateUpdate to set
 	 */
 	public void setDateUpdate(Date dateUpdate) {
-		this.dateUpdate = dateUpdate != null ? new Date(dateUpdate.getTime()) : null;
+		this.dateUpdate = dateUpdate != null ? (Date) dateUpdate.clone() : null;
 	}
 	
 	public Patient() {
@@ -144,12 +144,16 @@ public class Patient {
 		this.name = name;
 		this.firstname = firstname;
 		this.sex = sex;
-		this.birthday = birthday != null ? new Date(birthday.getTime()) : null;
+		this.birthday = birthday != null ? (Date) birthday.clone() : null;
 		this.address = address;
 		this.phone = phone;
+	}
+	
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", name=" + name + ", firstname=" + firstname + ", sex=" + sex + ", birthday="
+				+ birthday + ", address=" + address + ", phone=" + phone + "]";
 	}	
-	
-	
 	
 	
 }
